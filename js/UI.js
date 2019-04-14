@@ -3,7 +3,7 @@
 const UI = (function() {
   const _createListItemForMeal = function(meal) {
     const listItem = document.createElement("li");
-    listItem.id = "item-" + meal.id;
+    // listItem.id = "item-" + meal.id;
 
     const strongTxt = document.createElement("strong");
     strongTxt.appendChild(document.createTextNode(meal.name + ": "));
@@ -13,6 +13,8 @@ const UI = (function() {
 
     const link = document.createElement("a");
     link.setAttribute("href", "#");
+    link.className = "edit-meal-link";
+    link.setAttribute("data-meal-id", meal.id);
     const icon = document.createElement("i");
     icon.className = "fa fa-pencil";
     link.appendChild(icon);
@@ -63,11 +65,16 @@ const UI = (function() {
     elem.focus();
   };
 
+  const setValueOf = function(elem, value) {
+    elem.value = value;
+  };  
+
   return {
     updateTotalCalories: updateTotalCalories,
     updateMealsList: updateMealsList,
     displayElement: displayElement,
     clearForm: clearForm,
-    setFocusOn: setFocusOn
+    setFocusOn: setFocusOn,
+    setValueOf: setValueOf
   };
 })();
