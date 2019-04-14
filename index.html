@@ -39,8 +39,9 @@
           <!--Form-->
           <div class="form-container">
             <div class="form-title">Add Meals</div>
-            <form>
+            <form id="meal-form">
               <!--Form Fields-->
+              <input type="hidden" id="meal-id" value="">
               <div class="row">
                 <div class="col-md-6">
                   <input type="text" id="meal-name" placeholder="Meal Name">
@@ -76,29 +77,37 @@
           
           <!--Meals List-->
           <ul id="meals-list" class="meals-list">
-            <li class="collection-item" id="item-0">
+            <!-- <li id="item-0">
               <strong>Steak Dinner:</strong> <em>1200 Calories</em>      
-              <a href="#" class="secondary-content">
+              <a href="#">
                 <i class="fa fa-pencil"></i>
               </a>
             </li>    
-            <li class="collection-item" id="item-0">
+            <li id="item-0">
               <strong>Cookie:</strong> <em>400 Calories</em>
-              <a href="#" class="secondary-content">
+              <a href="#">
                 <i class="fa fa-pencil"></i>
               </a>
             </li>
-            <li class="collection-item" id="item-0">
+            <li id="item-0">
               <strong>Eggs:</strong> <em>300 Calories</em>
-              <a href="#" class="secondary-content">
+              <a href="#">
                 <i class="fa fa-pencil"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
 
       </div>
     </div>    
   </div>
 
+  <!--Custom JavaScript-->
+  <script src="js/globals.js"></script>
+  <script src="js/MealDao.js"></script>
+  <script src="js/StateMachine.js"></script>
+  <script src="js/UI.js"></script>
+  <script src="js/EventHandler.js"></script>  
+  <script src="js/App.js"></script>  
+  <script src="js/main.js"></script>
 </body>
 </html>
