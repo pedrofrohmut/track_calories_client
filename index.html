@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Font Awesome 4.7-->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--Bootstrap 4.0-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="style.css">
+  <title>Track Calories | Client</title>
+</head>
+<body>
+  
+  <!--NavBar + Brand-->
+  <nav class="navbar navbar-expand-md justify-content-between">
+    <div class="container">
+      <a href="#" class="navbar-brand navbar-text">Track Calories</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link clear-all-btn" id="clear-all-btn">Clear Meals</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
+
+          <!--Messages-->
+          <div class="messages-container" id="messages">
+            <div class="alert alert-success">Meal Added</div>
+          </div>
+        
+          <!--Form-->
+          <div class="form-container">
+            <div class="form-title">Add Meals</div>
+            <form>
+              <!--Form Fields-->
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" id="meal-name" placeholder="Meal Name">
+                </div>
+                <div class="col md-6">
+                  <input type="number" id="meal-calories" placeholder="Meal Calories">
+                </div>
+              </div>
+              <!--Form Buttons-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="button-container">
+                    <button id="add-btn" class="add-btn">
+                      <i class="fa fa-plus"></i> Add Meal
+                    </button>        
+                    <button id="update-btn" class="update-btn">
+                      <i class="fa fa-pencil-square-o"></i> Update Meal
+                    </button>        
+                    <button id="delete-btn" class="delete-btn">
+                      <i class="fa fa-remove"></i> Delete Meal
+                    </button>        
+                    <button id="back-btn" class="back-btn">
+                      <i class="fa fa-chevron-circle-left"></i> Back
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div> <!--/.form-container-->
+
+          <!--Total Calories-->
+          <h5 class="total-calories-header">Total Calories: <span id="total-calories" class="total-calories">0</span></h5>
+          
+          <!--Meals List-->
+          <ul id="meals-list" class="meals-list">
+            <li class="collection-item" id="item-0">
+              <strong>Steak Dinner:</strong> <em>1200 Calories</em>      
+              <a href="#" class="secondary-content">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </li>    
+            <li class="collection-item" id="item-0">
+              <strong>Cookie:</strong> <em>400 Calories</em>
+              <a href="#" class="secondary-content">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </li>
+            <li class="collection-item" id="item-0">
+              <strong>Eggs:</strong> <em>300 Calories</em>
+              <a href="#" class="secondary-content">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </li>
+          </ul>
+
+      </div>
+    </div>    
+  </div>
+
+</body>
+</html>
