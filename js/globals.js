@@ -2,8 +2,11 @@
 
 // Globals: Captured DOM Elements
 
+// Cant connect
+const $cantConnectContainer = document.querySelector("#cant-connect");
+
 // Loading 
-const $loading = document.querySelector("#loading");
+const $loadingContainer = document.querySelector("#loading");
 const $loadingMessage = document.querySelector("#loading p");
 
 // Form Elements

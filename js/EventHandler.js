@@ -109,7 +109,7 @@ const EventHandler = (function() {
   };
 
   const loadEventListeners = function() {
-    // Meal CRUD
+    // Form Buttons - Meals CRUD
     $mealForm.addEventListener("keypress", _submitForm);
     $addBtn.addEventListener("click", _addMeal);
     $updateBtn.addEventListener("click", _updateMeal);
@@ -118,6 +118,12 @@ const EventHandler = (function() {
     // State Changes
     $mealsList.addEventListener("click", _setEditState);
     $backBtn.addEventListener("click", _cancelEditState);
+
+    // Form Validation
+    $mealName.addEventListener("keyup", _validateMealName);
+    $mealCalories.addEventListener("keyup", _validateMealCalories);
+    $mealName.addEventListener("blur", _validateMealName);
+    $mealCalories.addEventListener("blur", _validateMealCalories);
   };
 
   return {

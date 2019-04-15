@@ -3,17 +3,36 @@
 const EDIT_STATE = "EDIT_STATE";
 const ADD_STATE = "ADD_STATE";
 const LOADING_STATE = "LOADING_STATE";
+const CANT_CONNECT_STATE = "CANT_CONNECT_STATE";
 
 const StateMachine = (function() {
   let _currentState = null;
 
-  const displayAddState = function() {
-    // hide
-    UI.displayElement($loading, "none");
+  const _hideAll = function() {
+    // TODO - MESSAGES
+
+    // ERROR
+    UI.displayElement($cantConnectContainer, "none");
+
+    // Loading Container
+    UI.displayElement($loadingContainer, "none");
+
+    // Form Container & Content
+    UI.displayElement($mealFormContainer, "none");
+    UI.displayElement($addBtn, "none");
     UI.displayElement($updateBtn, "none");
     UI.displayElement($deleteBtn, "none");
     UI.displayElement($backBtn, "none");
 
+    // Total Calories
+    UI.displayElement($totalCaloriesContainer, "none");
+
+    // Meals List
+    UI.displayElement($mealsList, "none");  
+  };
+
+  const displayAddState = function() {
+    _hideAll();
     // show
     UI.displayElement($mealFormContainer, "block");
     UI.displayElement($addBtn, "inline-block");
@@ -27,12 +46,7 @@ const StateMachine = (function() {
   };
 
   const displayEditState = function() {
-    // hide
-    UI.displayElement($loading, "none");
-    UI.displayElement($addBtn, "none");
-    UI.displayElement($totalCaloriesContainer, "none");
-    UI.displayElement($mealsList, "none");
-    
+    _hideAll();    
     // show
     UI.displayElement($mealFormContainer, "block");
     UI.displayElement($updateBtn, "inline-block");
@@ -46,20 +60,24 @@ const StateMachine = (function() {
   };
 
   const displayLoadingState = function(loadingMessage) {
+    _hideAll();    
     // Show
-    UI.displayElement($loading, "block");
+    UI.displayElement($loadingContainer, "block");
     if (loadingMessage) {
       $loadingMessage.textContent = loadingMessage;
     } else {
       $loadingMessage.textContent = "Loading...";
     }
 
-    // Hide
-    UI.displayElement($mealFormContainer, "none");
-    UI.displayElement($totalCaloriesContainer, "none");
-    UI.displayElement($mealsList, "none");    
-
     _currentState = LOADING_STATE;
+  };
+
+  const displayCantConnectState = function() {
+    _hideAll();
+    // Show
+    UI.displayElement($cantConnectContainer, "block");
+    
+    _currentState = CANT_CONNECT_STATE;
   };
 
   const getCurrentState = function() {
@@ -70,6 +88,7 @@ const StateMachine = (function() {
     displayAddState: displayAddState,
     displayEditState: displayEditState,
     displayLoadingState: displayLoadingState,
+    displayCantConnectState: displayCantConnectState,
     getCurrentState: getCurrentState
   };
 })();

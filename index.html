@@ -30,7 +30,15 @@
             <!-- <div class="alert alert-success">Meal Added</div> -->
           </div>
 
-          <!--TEMP LOADING-->
+          <!--Error-->
+          <div class="cant-connect-container" id="cant-connect">
+            <h3><i class="fa fa-frown-o"></i> Unable to connect</h3>
+            <p>Track Calories can't establish a connection to the server.</p>
+            <p>The Server may be off line or you may not have internet connection at this time.</p>
+            <button class="cant-connect-button" id="cant-connect-btn">Try Again</button>
+          </div>
+
+          <!--LOADING-->
           <div class="loading-container" id="loading">
             <img src="img/loading.gif" alt="loading..." title="loading....">
             <p>loading meal from database...</p>

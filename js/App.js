@@ -9,6 +9,9 @@ const App = (function() {
         UI.updateMealsList(meals, $mealsList);
         UI.updateTotalCalories(meals, $totalCalories);
         StateMachine.displayAddState();
+      })
+      .catch(err => {
+        // TODO: err handling for no server response
       });    
     EventHandler.loadEventListeners();
   };

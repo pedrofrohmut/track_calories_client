@@ -1,4 +1,5 @@
 "use strict";
+
 const Meal = function(id, name, calories) {
   this.id = id;
   this.name = name;
@@ -14,17 +15,22 @@ const MealDao = (function() {
   const REMOVE_MEAL_URL = "http://127.0.0.1:3000/meal";
 
   const getAllMeals = function() {
-    return fetch(GET_ALL_MEALS_URL)
-      .then(response => response.json())
-      .then(json =>
-        json.map(meal => new Meal(meal._id, meal.name, meal.calories))
-      );
+    return (
+      fetch(GET_ALL_MEALS_URL)
+        .then(response => response.json())
+        .then(json =>
+          json.map(meal => new Meal(meal._id, meal.name, meal.calories)))
+        .catch(err => err)
+    );  
   };
 
   const getMeal = function(mealId) {
-    return fetch(GET_MEAL_URL + "/" + mealId)
-      .then(response => response.json())
-      .then(json => new Meal(json._id, json.name, json.calories));
+    return (
+      fetch(GET_MEAL_URL + "/" + mealId)
+        .then(response => response.json())
+        .then(json => new Meal(json._id, json.name, json.calories))
+        .catch(err => err)
+    );
   };
 
   const addMeal = function(newMeal) {
@@ -42,6 +48,7 @@ const MealDao = (function() {
       })
         .then(response => response.json())
         .then(data => data)
+        .catch(err => err)
     );
   };
 
@@ -61,6 +68,7 @@ const MealDao = (function() {
       })
         .then(response => response.json())
         .then(data => data)
+        .catch(err => err)
     );
   };
 
@@ -76,6 +84,7 @@ const MealDao = (function() {
       })
         .then(response => response.json())
         .then(data => data)
+        .catch(err => err)
     );
   };
 

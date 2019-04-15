@@ -40,6 +40,33 @@
   padding: 7px 18px;
 }
 
+.cant-connect-container {
+  display: none;
+}
+
+.cant-connect-container h3 {
+  text-align: center;
+  margin-top: 0.4em;
+  margin-bottom: 0.8em;
+}
+    
+.cant-connect-container p {
+  font-size: 18px;
+  padding: 0 88px;
+}
+
+.cant-connect-container button {
+  background-color: #f3f3f3;
+  color: #333;
+  font-size: 16px;
+  opacity: 0.8;
+  padding: 0.4em 0.7em;
+  border-radius: 0.2em;
+  border: 0;
+  cursor: pointer;
+  margin-left: 89px;
+}
+
 .loading-container {
   display: none;
 }
