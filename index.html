@@ -18,14 +18,8 @@
   <nav class="navbar navbar-expand-md justify-content-between">
     <div class="container">
       <a href="#" class="navbar-brand navbar-text">Track Calories</a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link clear-all-btn" id="clear-all-btn">Clear Meals</a>
-        </li>
-      </ul>
     </div>
   </nav>
-
   
   <div class="container">
     <div class="row">
@@ -35,9 +29,15 @@
           <div class="messages-container" id="messages">
             <!-- <div class="alert alert-success">Meal Added</div> -->
           </div>
+
+          <!--TEMP LOADING-->
+          <div class="loading-container" id="loading">
+            <img src="img/loading.gif" alt="loading..." title="loading....">
+            <p>loading meal from database...</p>
+          </div>
         
           <!--Form-->
-          <div class="form-container">
+          <div class="form-container" id="meal-form-container">
             <div class="form-title">Add Meals</div>
             <form id="meal-form">
               <!--Form Fields-->

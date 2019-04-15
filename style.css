@@ -40,6 +40,23 @@
   padding: 7px 18px;
 }
 
+.loading-container {
+  display: none;
+}
+
+.loading-container img {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  height: 244px;
+}
+
+.loading-container p {
+  text-align: center;
+  line-height: 70px;
+  margin: 0;
+}
+
 .form-container {
   padding: 23px 25px 32px;
   border-radius: 0.3em;
@@ -72,6 +89,7 @@
   padding: 0.4em 0.7em;
   border-radius: 0.2em;
   border: 0;
+  cursor: pointer;
 }
 .form-container .button-container button:hover {
   box-shadow: #888 3px 3px 5px;

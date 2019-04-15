@@ -2,7 +2,12 @@
 
 // Globals: Captured DOM Elements
 
+// Loading 
+const $loading = document.querySelector("#loading");
+const $loadingMessage = document.querySelector("#loading p");
+
 // Form Elements
+const $mealFormContainer = document.querySelector("#meal-form-container");
 const $mealForm = document.querySelector("#meal-form");
 const $mealId = document.querySelector("#meal-id");
 const $mealName = document.querySelector("#meal-name");
@@ -13,6 +18,7 @@ const $deleteBtn = document.querySelector("#delete-btn");
 const $backBtn = document.querySelector("#back-btn");
 
 // Total Calories Header
+const $totalCaloriesContainer = document.querySelector(".total-calories-header");
 const $totalCalories = document.querySelector("#total-calories");
 
 // Meals List
