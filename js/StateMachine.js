@@ -9,7 +9,8 @@ const StateMachine = (function() {
   let _currentState = null;
 
   const _hideAll = function() {
-    // TODO - MESSAGES
+    // MESSAGES
+    UI.displayElement($alertContainer, "none");
 
     // ERROR
     UI.displayElement($cantConnectContainer, "none");
@@ -76,7 +77,7 @@ const StateMachine = (function() {
     _hideAll();
     // Show
     UI.displayElement($cantConnectContainer, "block");
-    
+
     _currentState = CANT_CONNECT_STATE;
   };
 

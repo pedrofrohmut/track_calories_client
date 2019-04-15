@@ -2,6 +2,9 @@
 
 // Globals: Captured DOM Elements
 
+// Messages
+const $alertContainer = document.querySelector("#alert");
+
 // Cant connect
 const $cantConnectContainer = document.querySelector("#cant-connect");
 

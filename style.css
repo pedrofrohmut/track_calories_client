@@ -10,8 +10,17 @@
   --form-color-1: #333;
 }
 
+body {
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  background-color: #fff;
+  color: #333;
+}
+
 .navbar {
   background-color: var(--navbar-primary-color, #333);
+  margin-bottom: 1.3em;
 }
 
 .navbar .navbar-brand {
@@ -31,13 +40,22 @@
   text-decoration: underline;
 }
 
-.messages-container {
-  margin-top: 0.8em;
+.alert-container .alert {
+  color: #444;
   font-size: 17px;  
+  position: static;
+  padding: .75rem 1.25rem;
+  border-radius: .25rem;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
-.messages-container .alert {
-  padding: 7px 18px;
+.alert-container .alert-ok {
+  background-color: #9be7cb;
+}
+
+.alert-container .alert-fail {
+  background-color: #faa1a1;
 }
 
 .cant-connect-container {
@@ -46,7 +64,6 @@
 
 .cant-connect-container h3 {
   text-align: center;
-  margin-top: 0.4em;
   margin-bottom: 0.8em;
 }
     
@@ -93,6 +110,7 @@
 .form-container .form-title {
   color: var(--form-color-1, #000);
   font-size: 28px;
+  margin-bottom: 32px;
 }
 
 .form-container input {
@@ -101,12 +119,11 @@
   padding: 7px 12px;
   font-size: 17px;
   width: 100%;
-  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .form-container .button-container {
   display: inline-block;
-  margin: 35px auto 0;
 }
 
 .form-container .invalid-input {

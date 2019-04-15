@@ -1,9 +1,16 @@
 "use strict";
 
+const ALERT_SUCCESS = "ALERT_SUCCESS";
+const ALERT_FAILURE = "ALERT_FAILURE";
+
+const CSS_INPUT_INVALID = "input-invalid";
+const CSS_INPUT_VALID = "input-valid";
+const CSS_ALERT_OK = "alert alert-ok";
+const CSS_ALERT_FAIL = "alert alert-fail";
+
 const UI = (function() {
   const _createListItemForMeal = function(meal) {
     const listItem = document.createElement("li");
-    // listItem.id = "item-" + meal.id;
 
     const strongTxt = document.createElement("strong");
     strongTxt.appendChild(document.createTextNode(meal.name + ": "));
@@ -70,29 +77,73 @@ const UI = (function() {
   };  
 
   const setInputAsValid = function(elem) {
-    elem.classList.remove("invalid-input");
-    elem.classList.remove("valid-input");
-    elem.classList.add("valid-input");
+    elem.classList.remove(CSS_INPUT_INVALID);
+    elem.classList.remove(CSS_INPUT_VALID);
+    elem.classList.add(CSS_INPUT_VALID);
   };
   
   const setInputAsInvalid = function(elem) {
-    elem.classList.remove("valid-input");
-    elem.classList.remove("invalid-input");
-    elem.classList.add("invalid-input");    
+    elem.classList.remove(CSS_INPUT_VALID);
+    elem.classList.remove(CSS_INPUT_INVALID);
+    elem.classList.add(CSS_INPUT_INVALID);    
   };
 
   const removeValidationClassesInput = function(elem) {
-    elem.classList.remove("valid-input");
-    elem.classList.remove("invalid-input");
+    elem.classList.remove(CSS_INPUT_VALID);
+    elem.classList.remove(CSS_INPUT_INVALID);
+  };
+
+  const _clearAllAlerts = function() {
+    while ($alertContainer.firstElementChild) {
+      $alertContainer.removeChild($alertContainer.firstElementChild);
+    }
+  };  
+
+  const _createNewAlert = function(message, alertType) {
+    const alert = document.createElement("div");
+    alert.appendChild(document.createTextNode(message));
+    switch (alertType) {
+      case ALERT_SUCCESS :
+        alert.className = CSS_ALERT_OK;
+        break;
+      case ALERT_FAILURE :
+        alert.className = CSS_ALERT_FAIL;
+        break;
+    }
+    return alert;
+  };
+
+  const _hideAlert = function() {
+    _clearAllAlerts();
+    UI.displayElement($alertContainer, "none");    
+  };
+
+  const showAlert = function(message, alertType) {
+    _clearAllAlerts();
+    UI.displayElement($alertContainer, "block");
+    $alertContainer.appendChild(_createNewAlert(message, alertType));
+    setTimeout(() => _hideAlert(), 3000);
   };
 
   return {
-    updateTotalCalories: updateTotalCalories,
-    updateMealsList: updateMealsList,
+    // HTML Element Setters
     displayElement: displayElement,
-    clearForm: clearForm,
     setFocusOn: setFocusOn,
     setValueOf: setValueOf,
+
+    // Messages
+    showAlert: showAlert,
+
+    // Meal Form
+    clearForm: clearForm,
+
+    // Total Calories
+    updateTotalCalories: updateTotalCalories,
+
+    // Meals List
+    updateMealsList: updateMealsList,
+
+    // Input Validation Classes
     setInputAsValid: setInputAsValid,
     setInputAsInvalid: setInputAsInvalid,
     removeValidationClassesInput: removeValidationClassesInput

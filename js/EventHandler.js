@@ -39,10 +39,10 @@ const EventHandler = (function() {
             UI.updateMealsList(meals, $mealsList);
             UI.updateTotalCalories(meals, $totalCalories);
             StateMachine.displayAddState()
+            UI.showAlert("Meal Added", ALERT_SUCCESS);
         });
     } else {
-      // TODO: UI SHOW ALERT
-      console.log("ERR AT ADD MEAL");
+      UI.showAlert("Invalid Input, Please Check Your Values", ALERT_FAILURE);
     }
   };
 
@@ -62,10 +62,10 @@ const EventHandler = (function() {
           UI.updateMealsList(meals, $mealsList);
           UI.updateTotalCalories(meals, $totalCalories);
           StateMachine.displayAddState()
+          UI.showAlert("Meal Updated", ALERT_SUCCESS);
         });
     } else {
-      // TODO: UI SHOW ALERT
-      console.log("ERR AT ADD MEAL");
+      UI.showAlert("Invalid Input, Please Check Your Values", ALERT_FAILURE);
     }
   };
 
@@ -83,6 +83,7 @@ const EventHandler = (function() {
           UI.updateMealsList(meals, $mealsList);
           UI.updateTotalCalories(meals, $totalCalories);
           StateMachine.displayAddState();
+          UI.showAlert("Meal Deleted", ALERT_SUCCESS);
         });        
     }
   };
@@ -129,6 +130,8 @@ const EventHandler = (function() {
   };
 
   const loadEventListeners = function() {
+    // TODO: Error Handling at CRUD methods that calls Dao methods
+
     // Form Buttons - Meals CRUD
     $mealForm.addEventListener("keypress", _submitForm);
     $addBtn.addEventListener("click", _addMeal);
