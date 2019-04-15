@@ -108,6 +108,26 @@ const EventHandler = (function() {
     StateMachine.displayAddState();
   };
 
+  const _validateMealName = function(event) {
+    if ($mealName.value === "") {
+      UI.removeValidationClassesInput($mealName);
+    } else if (_isValidMealName($mealName.value)) {
+      UI.setInputAsValid($mealName); 
+    } else {
+      UI.setInputAsInvalid($mealName);
+    }    
+  };
+
+  const _validateMealCalories = function(e) {
+    if ($mealCalories.value === "") {
+      UI.removeValidationClassesInput($mealCalories);
+    } else if (_isValidMealCalories( parseInt($mealCalories.value) )) {
+      UI.setInputAsValid($mealCalories);
+    } else {
+      UI.setInputAsInvalid($mealCalories);
+    }
+  };
+
   const loadEventListeners = function() {
     // Form Buttons - Meals CRUD
     $mealForm.addEventListener("keypress", _submitForm);

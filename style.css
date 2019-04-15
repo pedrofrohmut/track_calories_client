@@ -109,6 +109,14 @@
   margin: 35px auto 0;
 }
 
+.form-container .invalid-input {
+  box-shadow: #f55 0px 0px 7px 4px;
+}
+
+.form-container .valid-input {
+  box-shadow: #23a072 0px 0px 7px 4px;
+}
+
 .form-container .button-container button {
   color: #f3f3f3;
   font-size: 16px;

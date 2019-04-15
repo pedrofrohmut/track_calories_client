@@ -69,12 +69,32 @@ const UI = (function() {
     elem.value = value;
   };  
 
+  const setInputAsValid = function(elem) {
+    elem.classList.remove("invalid-input");
+    elem.classList.remove("valid-input");
+    elem.classList.add("valid-input");
+  };
+  
+  const setInputAsInvalid = function(elem) {
+    elem.classList.remove("valid-input");
+    elem.classList.remove("invalid-input");
+    elem.classList.add("invalid-input");    
+  };
+
+  const removeValidationClassesInput = function(elem) {
+    elem.classList.remove("valid-input");
+    elem.classList.remove("invalid-input");
+  };
+
   return {
     updateTotalCalories: updateTotalCalories,
     updateMealsList: updateMealsList,
     displayElement: displayElement,
     clearForm: clearForm,
     setFocusOn: setFocusOn,
-    setValueOf: setValueOf
+    setValueOf: setValueOf,
+    setInputAsValid: setInputAsValid,
+    setInputAsInvalid: setInputAsInvalid,
+    removeValidationClassesInput: removeValidationClassesInput
   };
 })();
