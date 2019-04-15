@@ -7,6 +7,7 @@ const $alertContainer = document.querySelector("#alert");
 
 // Cant connect
 const $cantConnectContainer = document.querySelector("#cant-connect");
+const $cantConnectBtn = document.querySelector("#cant-connect-btn");
 
 // Loading 
 const $loadingContainer = document.querySelector("#loading");

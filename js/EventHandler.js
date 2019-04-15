@@ -40,7 +40,8 @@ const EventHandler = (function() {
             UI.updateTotalCalories(meals, $totalCalories);
             StateMachine.displayAddState()
             UI.showAlert("Meal Added", ALERT_SUCCESS);
-        });
+        })
+        .catch(() => StateMachine.displayCantConnectState());
     } else {
       UI.showAlert("Invalid Input, Please Check Your Values", ALERT_FAILURE);
     }
@@ -63,7 +64,8 @@ const EventHandler = (function() {
           UI.updateTotalCalories(meals, $totalCalories);
           StateMachine.displayAddState()
           UI.showAlert("Meal Updated", ALERT_SUCCESS);
-        });
+        })
+        .catch(() => StateMachine.displayCantConnectState());
     } else {
       UI.showAlert("Invalid Input, Please Check Your Values", ALERT_FAILURE);
     }
@@ -84,7 +86,8 @@ const EventHandler = (function() {
           UI.updateTotalCalories(meals, $totalCalories);
           StateMachine.displayAddState();
           UI.showAlert("Meal Deleted", ALERT_SUCCESS);
-        });        
+        })
+        .catch(() => StateMachine.displayCantConnectState());        
     }
   };
 
@@ -100,7 +103,8 @@ const EventHandler = (function() {
           UI.setValueOf($mealId, meal.id);
           UI.setValueOf($mealName, meal.name);
           UI.setValueOf($mealCalories, meal.calories);
-        });
+        })
+        .catch(() => StateMachine.displayCantConnectState());
     }
   };
 
@@ -129,9 +133,11 @@ const EventHandler = (function() {
     }
   };
 
-  const loadEventListeners = function() {
-    // TODO: Error Handling at CRUD methods that calls Dao methods
+  const _refreshPage = function() {
+    window.location.reload();
+  };
 
+  const loadEventListeners = function() {
     // Form Buttons - Meals CRUD
     $mealForm.addEventListener("keypress", _submitForm);
     $addBtn.addEventListener("click", _addMeal);
@@ -147,6 +153,8 @@ const EventHandler = (function() {
     $mealCalories.addEventListener("keyup", _validateMealCalories);
     $mealName.addEventListener("blur", _validateMealName);
     $mealCalories.addEventListener("blur", _validateMealCalories);
+
+    $cantConnectBtn.addEventListener("click", _refreshPage);
   };
 
   return {

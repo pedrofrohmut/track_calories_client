@@ -10,9 +10,7 @@ const App = (function() {
         UI.updateTotalCalories(meals, $totalCalories);
         StateMachine.displayAddState();
       })
-      .catch(err => {
-        // TODO: err handling for no server response
-      });    
+      .catch(() => StateMachine.displayCantConnectState());
     EventHandler.loadEventListeners();
   };
 

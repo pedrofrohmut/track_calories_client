@@ -73,11 +73,11 @@ body {
 }
 
 .cant-connect-container button {
-  background-color: #f3f3f3;
+  background-color: #e7e7e7;
   color: #333;
   font-size: 16px;
-  opacity: 0.8;
-  padding: 0.4em 0.7em;
+  opacity: 0.7;
+  padding: 0.4em 1em;
   border-radius: 0.2em;
   border: 0;
   cursor: pointer;
