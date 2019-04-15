@@ -9,15 +9,9 @@ const MealDao = (function() {
 
   const GET_ALL_MEALS_URL = "http://127.0.0.1:3000/meal";
   const GET_MEAL_URL = "http://127.0.0.1:3000/meal";
-
-
-  const newMeal = function(id, name, calories) {
-    return new Meal(id, name, calories);
-  };
-
-  const newMealNoId = function(name, calories) {
-    return new Meal(0, name, calories);
-  };
+  const ADD_MEAL_URL = "http://127.0.0.1:3000/meal";
+  const UPDATE_MEAL_URL = "http://127.0.0.1:3000/meal";
+  const REMOVE_MEAL_URL = "http://127.0.0.1:3000/meal";
 
   const getAllMeals = function() {
     return fetch(GET_ALL_MEALS_URL)
@@ -33,10 +27,63 @@ const MealDao = (function() {
       .then(json => new Meal(json._id, json.name, json.calories));
   };
 
+  const addMeal = function(newMeal) {
+    const data = {
+      name: newMeal.name,
+      calories: newMeal.calories
+    };
+    return (
+      fetch(ADD_MEAL_URL, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => data)
+    );
+  };
+
+  const updateMeal = function(updatedMeal) {
+    const data = {
+      id: updatedMeal.id,
+      name: updatedMeal.name,
+      calories: updatedMeal.calories
+    };
+    return (
+      fetch(UPDATE_MEAL_URL,{
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => data)
+    );
+  };
+
+  const removeMeal = function(mealId) {
+    const data = { id: mealId };
+    return (
+      fetch(REMOVE_MEAL_URL, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => data)
+    );
+  };
+
   return {
-    newMeal: newMeal,
-    newMealNoId: newMealNoId,
     getAllMeals: getAllMeals,
-    getMeal: getMeal
+    getMeal: getMeal,
+    addMeal: addMeal,
+    updateMeal: updateMeal,
+    removeMeal: removeMeal
   };
 })();

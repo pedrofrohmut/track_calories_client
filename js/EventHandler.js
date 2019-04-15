@@ -5,13 +5,9 @@ const EventHandler = (function() {
     if (event.key === "Enter") {
       switch ( StateMachine.getCurrentState() ) {
         case ADD_STATE :
-          // _addMeal(e);
-          console.log("add meal");
           _addMeal(event);
           break;
         case EDIT_STATE : 
-          // _updateMeal(e);
-          console.log("update meal");
           _updateMeal(event);
           break;
       }
@@ -29,12 +25,18 @@ const EventHandler = (function() {
   }
 
   const _addMeal = function(event) {
+    event.preventDefault();
+
     const mealName = $mealName.value;
     const mealCalories = parseInt($mealCalories.value);
 
     if (_isValidMealName(mealName) && _isValidMealCalories(mealCalories)) {
-      StateMachine.displayAddState();
-      MealDao.addMeal(new Meal(0, mealName, mealCalories));
+      MealDao
+        .addMeal(new Meal(0, mealName, mealCalories))
+        .then(data => {
+          StateMachine.displayAddState();
+          console.log(data) // TODO: UI SHOW ALERT
+        });
     } else {
       // TODO: UI SHOW ALERT
       console.log("ERR AT ADD MEAL");
@@ -42,11 +44,38 @@ const EventHandler = (function() {
   };
 
   const _updateMeal = function(event) {
+    event.preventDefault();
 
+    const mealId = $mealId.value;
+    const mealName = $mealName.value;
+    const mealCalories = parseInt($mealCalories.value);
+
+    if (_isValidMealName(mealName) && _isValidMealCalories(mealCalories)) {
+      MealDao
+        .updateMeal(new Meal(mealId, mealName, mealCalories))
+        .then(data => {
+          StateMachine.displayAddState();
+          console.log(data) // TODO: UI SHOW ALERT
+        });
+    } else {
+      // TODO: UI SHOW ALERT
+      console.log("ERR AT ADD MEAL");
+    }
   };
 
   const _deleteMeal = function(event) {
+    event.preventDefault();
 
+    const mealId = $mealId.value;
+
+    if (confirm("Are you sure?")) {      
+      MealDao
+        .removeMeal(mealId)
+        .then(data => {
+          console.log(data);
+          StateMachine.displayAddState();
+        });
+    }
   };
 
   const _setEditState = function(event) {
@@ -54,11 +83,13 @@ const EventHandler = (function() {
     if (event.target.parentElement.classList.contains("edit-meal-link")) {
       StateMachine.displayEditState();
       const mealId = event.target.parentElement.dataset.mealId;
-      MealDao.getMeal(mealId).then(meal => {
-        UI.setValueOf($mealId, meal.id);
-        UI.setValueOf($mealName, meal.name);
-        UI.setValueOf($mealCalories, meal.calories);
-      });
+      MealDao
+        .getMeal(mealId)
+        .then(meal => {
+          UI.setValueOf($mealId, meal.id);
+          UI.setValueOf($mealName, meal.name);
+          UI.setValueOf($mealCalories, meal.calories);
+        });
     }
   };
 
