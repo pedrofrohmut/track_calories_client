@@ -1,0 +1,64 @@
+.form-container {
+  padding: 23px 25px 32px;
+  border-radius: 0.3em;
+  box-shadow: #e3e3e3 3px 2px 7px 3px;
+}
+
+.form-container .form-title {
+  color: var(--form-color-1, #000);
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.form-container input {
+  border: 0;
+  border-bottom: 3px solid #888;
+  padding: 7px 12px;
+  font-size: 17px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.form-container .button-container {
+  display: inline-block;
+}
+
+.form-container .invalid-input {
+  box-shadow: #f55 0px 0px 7px 4px;
+}
+
+.form-container .valid-input {
+  box-shadow: #23a072 0px 0px 7px 4px;
+}
+
+.form-container .button-container button {
+  color: #f3f3f3;
+  font-size: 16px;
+  opacity: 0.8;
+  padding: 0.4em 0.7em;
+  border-radius: 0.2em;
+  border: 0;
+  cursor: pointer;
+}
+.form-container .button-container button:hover {
+  box-shadow: #888 3px 3px 5px;
+}
+
+.form-container .add-btn {
+  background-color: #4747d1;
+}
+
+.form-container .update-btn {
+  background-color: #23a072;
+  display: none;
+}
+
+.form-container .delete-btn {
+  background-color: #f55;
+  display: none;
+}
+
+.form-container .back-btn {
+  background-color: #64505a;
+  display: none;
+}

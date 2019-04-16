@@ -1,0 +1,17 @@
+.alert-container .alert {
+  color: #444;
+  font-size: 17px;  
+  position: static;
+  padding: .75rem 1.25rem;
+  border-radius: .25rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.alert-container .alert-ok {
+  background-color: #9be7cb;
+}
+
+.alert-container .alert-fail {
+  background-color: #faa1a1;
+}
