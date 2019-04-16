@@ -1,0 +1,18 @@
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Medium */
+@media(min-width: 481px) {
+  main {
+    width: 85%;
+  }
+}
+
+/* Large */
+@media(min-width: 769px) {
+  main {
+    width: 70%;
+  }
+}

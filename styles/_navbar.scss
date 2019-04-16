@@ -1,9 +1,13 @@
 .navbar {
   background-color: $navbarPrimaryColor;
   margin-bottom: 1.3em;
+  padding: 0.4em;
 
   .navbar-brand {
     color: $navbarSecondaryColor;
     font-size: 22px;
+    text-decoration: none;
+    margin-left: 10%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 }

@@ -4,109 +4,99 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--Font Awesome 4.7-->
+
+  <!--Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Arizonia" rel="stylesheet">
+
+  <!--CSS-->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!--Bootstrap 4.0-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <!--Custom CSS-->
   <link rel="stylesheet" href="styles/app.css">
+
   <title>Track Calories | Client</title>
 </head>
 <body>
   
   <!--NavBar + Brand-->
-  <nav class="navbar navbar-expand-md justify-content-between">
-    <div class="container">
-      <a href="#" class="navbar-brand navbar-text">Track Calories</a>
-    </div>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Track Calories</a>
   </nav>
+
+  <!--Main Content-->
+  <main>
+    <!--Alerts-->
+    <div class="alert-container" id="alert"></div>
+
+    <!--Cant Connect-->
+    <div class="cant-connect-container" id="cant-connect">
+      <h3><i class="fa fa-frown-o"></i> Unable to connect</h3>
+      <p>Track Calories can't establish a connection to the server.</p>
+      <p>The Server may be off line or you may not have internet connection at this time.</p>
+      <button class="cant-connect-button" id="cant-connect-btn">Try Again</button>
+    </div>
+
+    <!--LOADING-->
+    <div class="loading-container" id="loading">
+      <img src="img/loading.gif" alt="loading..." title="loading....">
+      <p>loading meal from database...</p>
+    </div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
+    <!--Form-->
+    <div class="form-container" id="meal-form-container">
+      <div class="form-title">Add Meals</div>
 
-          <!--Alerts-->
-          <div class="alert-container" id="alert"></div>
-
-          <!--Cant Connect-->
-          <div class="cant-connect-container" id="cant-connect">
-            <h3><i class="fa fa-frown-o"></i> Unable to connect</h3>
-            <p>Track Calories can't establish a connection to the server.</p>
-            <p>The Server may be off line or you may not have internet connection at this time.</p>
-            <button class="cant-connect-button" id="cant-connect-btn">Try Again</button>
-          </div>
-
-          <!--LOADING-->
-          <div class="loading-container" id="loading">
-            <img src="img/loading.gif" alt="loading..." title="loading....">
-            <p>loading meal from database...</p>
-          </div>
+      <form id="meal-form">        
+        <!--Form Fields-->
+        <input type="hidden" id="meal-id" value="">
+        <div class="input-container">
+          <input type="text" id="meal-name" placeholder="Meal Name">
+          <input type="number" id="meal-calories" placeholder="Meal Calories">
+        </div>
         
-          <!--Form-->
-          <div class="form-container" id="meal-form-container">
-            <div class="form-title">Add Meals</div>
-            <form id="meal-form">
-              <!--Form Fields-->
-              <input type="hidden" id="meal-id" value="">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" id="meal-name" placeholder="Meal Name">
-                </div>
-                <div class="col md-6">
-                  <input type="number" id="meal-calories" placeholder="Meal Calories">
-                </div>
-              </div>
-              <!--Form Buttons-->
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="button-container">
-                    <button id="add-btn" class="add-btn">
-                      <i class="fa fa-plus"></i> Add Meal
-                    </button>        
-                    <button id="update-btn" class="update-btn">
-                      <i class="fa fa-pencil-square-o"></i> Update Meal
-                    </button>        
-                    <button id="delete-btn" class="delete-btn">
-                      <i class="fa fa-remove"></i> Delete Meal
-                    </button>        
-                    <button id="back-btn" class="back-btn">
-                      <i class="fa fa-chevron-circle-left"></i> Back
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div> <!--/.form-container-->
+        <!--Form Buttons-->
+        <div class="button-container">
+          <button id="add-btn" class="add-btn">
+            <i class="fa fa-plus"></i> Add Meal
+          </button>        
+          <button id="update-btn" class="update-btn">
+            <i class="fa fa-pencil-square-o"></i> Update Meal
+          </button>        
+          <button id="delete-btn" class="delete-btn">
+            <i class="fa fa-remove"></i> Delete Meal
+          </button>        
+          <button id="back-btn" class="back-btn">
+            <i class="fa fa-chevron-circle-left"></i> Back
+          </button>
+        </div>
+      </form>
 
-          <!--Total Calories-->
-          <h5 class="total-calories-header">Total Calories: <span id="total-calories" class="total-calories">0</span></h5>
-          
-          <!--Meals List-->
-          <ul id="meals-list" class="meals-list">
-            <!-- 
-            <li id="item-0">
-              <strong>Steak Dinner:</strong> <em>1200 Calories</em>      
-              <a class="edit-meal-link" href="#" data-meal-id="">
-                <i class="fa fa-pencil"></i>
-              </a>
-            </li>    
-            <li id="item-0">
-              <strong>Cookie:</strong> <em>400 Calories</em>
-              <a class="edit-meal-link" href="#" data-meal-id="">
-                <i class="fa fa-pencil"></i>
-              </a>
-            </li>
-            <li id="item-0">
-              <strong>Eggs:</strong> <em>300 Calories</em>
-              <a class="edit-meal-link" href="#" data-meal-id="">
-                <i class="fa fa-pencil"></i>
-              </a>
-            </li> -->
-          </ul>
+    </div> <!--/.form-container-->
 
-      </div>
-    </div>    
-  </div>
+    <!--Total Calories-->
+    <h5 class="total-calories-header">Total Calories: <span id="total-calories" class="total-calories">0</span></h5>
+    
+    <!--Meals List-->
+    <ul id="meals-list" class="meals-list">
+      <!-- 
+      <li id="item-0">
+        <strong>Steak Dinner:</strong> <em>1200 Calories</em>      
+        <a class="edit-meal-link" href="#" data-meal-id="">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </li>    
+      <li id="item-0">
+        <strong>Cookie:</strong> <em>400 Calories</em>
+        <a class="edit-meal-link" href="#" data-meal-id="">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </li>
+      <li id="item-0">
+        <strong>Eggs:</strong> <em>300 Calories</em>
+        <a class="edit-meal-link" href="#" data-meal-id="">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </li> -->
+    </ul>
+  </main>
 
   <!--Custom JavaScript-->
   <script src="js/globals.js"></script>

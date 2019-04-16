@@ -1,5 +1,6 @@
 /* General use */
 /* NAVBAR */
+/* Fonts */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8,7 +9,7 @@
 }
 
 :root {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 22px;
   line-height: 40px;
   font-weight: 400;
@@ -19,16 +20,40 @@
 
 body {
   min-height: 100vh;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Medium */
+@media (min-width: 481px) {
+  main {
+    width: 85%;
+  }
+}
+
+/* Large */
+@media (min-width: 769px) {
+  main {
+    width: 70%;
+  }
 }
 
 .navbar {
   background-color: #066d;
   margin-bottom: 1.3em;
+  padding: 0.4em;
 }
 
 .navbar .navbar-brand {
   color: #f3f3f3;
   font-size: 22px;
+  text-decoration: none;
+  margin-left: 10%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .alert-container .alert {
@@ -94,15 +119,21 @@ body {
 
 .form-container {
   padding: 23px 25px 32px;
-  border-radius: 0.3em;
-  -webkit-box-shadow: #e3e3e3 3px 2px 7px 3px;
-          box-shadow: #e3e3e3 3px 2px 7px 3px;
 }
 
 .form-container .form-title {
   color: #333;
-  font-size: 28px;
+  font-size: 52px;
   margin-bottom: 32px;
+  font-family: "Arizonia", cursive;
+}
+
+.form-container .input-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-row-gap: 7px;
 }
 
 .form-container input {
@@ -162,22 +193,36 @@ body {
   display: none;
 }
 
+@media (min-width: 481px) {
+  .form-container {
+    border-radius: 0.3em;
+    -webkit-box-shadow: #e3e3e3 3px 2px 7px 3px;
+            box-shadow: #e3e3e3 3px 2px 7px 3px;
+  }
+}
+
+@media (min-width: 769px) {
+  .form-container .input-container {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
 .total-calories-header {
   text-align: center;
   margin: 1em auto 0.4em;
-  font-size: 19px;
-}
-
-.total-calories-header .total-calories {
-  font-size: 20px;
+  font-size: 49px;
+  font-family: "Arizonia", cursive;
 }
 
 .meals-list {
-  margin: 1em auto 0;
+  margin: 2em auto 2em;
   list-style: none;
   font-size: 16px;
   border-top: 1px solid #e0e0e0;
   padding: 0;
+  width: 100%;
 }
 
 .meals-list li {

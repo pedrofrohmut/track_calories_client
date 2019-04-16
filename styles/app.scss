@@ -7,8 +7,7 @@
 }
 
 :root {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: $mainFont;
   font-size: 22px;
   line-height: 40px;
   font-weight: 400;
@@ -19,8 +18,10 @@
 
 body {
   min-height: 100vh;
+  height: 100%;
 }
 
+@import "./layout";
 @import "./navbar";
 @import "./alert";
 @import "./cant-connect";
