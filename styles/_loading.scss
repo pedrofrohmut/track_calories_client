@@ -1,16 +1,16 @@
 .loading-container {
   display: none;
-}
 
-.loading-container img {
-  margin: 0 auto;
-  display: block;
-  position: relative;
-  height: 244px;
-}
+  img {
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    height: 244px;
+  }
 
-.loading-container p {
-  text-align: center;
-  line-height: 70px;
-  margin: 0;
+  p {
+    text-align: center;
+    line-height: 70px;
+    margin: 0;
+  }
 }

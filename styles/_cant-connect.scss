@@ -1,25 +1,25 @@
 .cant-connect-container {
   display: none;
-}
 
-.cant-connect-container h3 {
-  text-align: center;
-  margin-bottom: 0.8em;
-}
-    
-.cant-connect-container p {
-  font-size: 18px;
-  padding: 0 88px;
-}
-
-.cant-connect-container button {
-  background-color: #e7e7e7;
-  color: #333;
-  font-size: 16px;
-  opacity: 0.7;
-  padding: 0.4em 1em;
-  border-radius: 0.2em;
-  border: 0;
-  cursor: pointer;
-  margin-left: 89px;
+  h3 {
+    text-align: center;
+    margin-bottom: 0.8em;
+  }
+      
+  p {
+    font-size: 18px;
+    padding: 0 88px;
+  }
+  
+  button {
+    background-color: #e7e7e7;
+    color: #333;
+    font-size: 16px;
+    opacity: 0.7;
+    padding: 0.4em 1em;
+    border-radius: 0.2em;
+    border: 0;
+    cursor: pointer;
+    margin-left: 89px;
+  }
 }
